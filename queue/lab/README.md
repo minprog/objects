@@ -48,7 +48,7 @@ We have now defined the *class interface* in Python. The class interface, consis
 
 As we mentioned, a queue is similar to a list, yet with a different set of supported operations. Our queue objects will need to have some data storage for keeping items. We will use a standard Python list to build our class around. Specifically, each queue object will *contain* its own private list object.
 
-To create an object that is internal to our queue objects, we should store and retrieve it using the `self` keyword:
+To create a list object that is internal to our queue objects, we should store and retrieve it using the `self` keyword:
 
     self._data = []
 
