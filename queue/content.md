@@ -117,9 +117,6 @@ If there's anything not quite right with your implementation, `check50` won't pr
 
 Got stuck? Feel free to ask for help!
 
-{% next %}
-
-
 ## Conclusion
 
 Having implemented the `Queue` class, you should notice what it *doesn't* support. You can't, for example, take a look at the second element of a queue, unless you remove the first one. And you definitely can't dequeue an element from the back of the queue. All in all, a queue is a lot less flexible than a standard Python structure such as a list or a dictionary. S,o why use a queue at all? Two principles of object oriented programming are at play here:
