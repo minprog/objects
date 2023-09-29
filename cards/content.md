@@ -38,7 +38,7 @@ A method is a function that is attached to a particular class. That is why the c
 
 Use the following syntax:
 
-    def __init__(self, attr1, ...):
+    def __init__(self, attr1, ...) -> None:
         self.attr1 = attr1
 
 In the parameter list of the `__init__` method, you define for which attributes a value has to be provided. In the method body, you set the corresponding attributes via `self`. Note that `__init__` doesn't `return` anything! It just sets the attributes.
@@ -180,10 +180,6 @@ Note that some of the methods that you wrote aren't in this diagram. Usually, we
 To determine what is relevant, we look at classes from another programmer's perspective. They might want to use your card classes to implement a game. What information do they need to use the class well? For example, they would not need to know that `Deck` stores all cards in a list called `_cards`. They would want to know about the methods they would need to call when implementing a game: `shuffle` and `deal`. Everything else is *implementation detail*.
 
 In other words, classes' data is kept private and only through their methods should their attributes be manipulated. This idea is called *encapsulation*. However, data classes like `Card` are an exception to this rule. Data classes are purposely designed to hold some basic data, just like a `struct` in C, and attributes are usually manipulated directly, not through methods.
-
-If you have `check50` installed, you can run it as per below. If you don't have `check50` installed, checking the code manually should be enough!
-
-    check50 -l minprog/objects/master/cards
 
 ## Implementation diagram
 
