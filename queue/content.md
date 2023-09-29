@@ -28,14 +28,16 @@ This means that the class definition must look like this:
     class Queue:
 
         # add element to back of queue
-        def enqueue(self, element):
+        def enqueue(self, element: Any) -> None:
             # TODO
 
         # remove and return element from front of queue
-        def dequeue(self):
+        def dequeue(self) -> Any:
             # TODO
 
 **Before you go on**, copy the class definition from above into your editor. You can also copy the testing code below it. Study it well.
+
+Note that we will allow **any** type of value to be added to the queue by specifying this in the type hints. To use the type `Any` you need to add `from typing import Any` to your file.
 
 We have now defined the *class interface* in Python. The class interface, consisting of two methods, prescribes how you could **use** the class by calling its methods. However, our interface does not have an implementation yet, so the testing code doesn't work.
 
@@ -45,7 +47,7 @@ As we mentioned, a queue is similar to a list, yet with a different set of suppo
 
 To create an object that is internal to our queue objects, we should store and retrieve it using the `self` keyword:
 
-    self._data = []
+    self._data: list[Any] = []
 
 This line creates a new list and stores it in the object under the name `_data`. We chose to start the name with an underscore (`_`) to indicate that the variable is private to the object, and that one should not write code to manipulate that variable from anywhere else but the code of the class itself.
 
@@ -54,7 +56,7 @@ This line creates a new list and stores it in the object under the name `_data`.
 Because each object needs such a list from the very beginning, the line above should be placed in the *object initializer*, which will then look like this:
 
     def __init__(self):
-        self._data = []
+        self._data: list[Any] = []
 
 **Before you go on**, add this method to the top of the `Queue` class definition.
 
@@ -93,6 +95,8 @@ We now ask you to implement three of those operations as methods of the `Queue` 
 
 **Implement** these operations and add some testing code at the bottom of `my_queue.py` to see if it all works well.
 
+Note the way `peek` is spelled. This is not an accident.
+
 ## Helping to debug
 
 When you're going to use the `Queue` class somewhere in your own project, you might encounter an error when trying to `dequeue()` when the queue is actually empty. Depending on how you chose to implement that method, you will get some kind of exception. This exception is not very queue-specific.
@@ -107,19 +111,17 @@ Once you have done this, and some other part of the code tries to dequeue an ele
 
 Note that such an error will **not** help the *user* of a program in which your `Queue` class is implemented. To a user, an `AssertionError` means nothing but confusion! So, assertions are first and foremost a tool to help find the root cause of problems in your own code.
 
-## Checking your implementation
+## Testing your implementation
 
-You can check your implementation using `check50`:
+You can experiment by writing a couple of doctests for your class (we will not be checking these when you submit, though). But you can also keep adding test statements to the bottom of the file.
 
-    check50 -l minprog/objects/master/queue
-
-If there's anything not quite right with your implementation, `check50` won't provide you with any hints this time. Instead, try adding some additional checks to queue.py yourself to see if everything works as expected. Especially make sure that `dequeue()` throws an `AssertionError` if the queue is empty.
+When you submit, your class will be checked against the specification above. If there's anything not quite right with your implementation, the feedback won't provide you with any real hints this time. Instead, try adding some additional checks to queue.py yourself to see if everything works as expected. Especially make sure that `dequeue()` throws an `AssertionError` if the queue is empty.
 
 Got stuck? Feel free to ask for help!
 
 ## Conclusion
 
-Having implemented the `Queue` class, you should notice what it *doesn't* support. You can't, for example, take a look at the second element of a queue, unless you remove the first one. And you definitely can't dequeue an element from the back of the queue. All in all, a queue is a lot less flexible than a standard Python structure such as a list or a dictionary. S,o why use a queue at all? Two principles of object oriented programming are at play here:
+Having implemented the `Queue` class, you should notice what it *doesn't* support. You can't, for example, take a look at the second element of a queue, unless you remove the first one. And you definitely can't dequeue an element from the back of the queue. All in all, a queue is a lot *less flexible* than a standard Python structure such as a list or a dictionary. So, why use a queue at all? Two principles of object oriented programming are at play here:
 
 1. Our class provides a simple-to-use *interface* for a very specific task. This makes the code that *uses* the queue much simpler to read. In this case, an experienced programmer recognizes the enqueue and dequeue operations and immediately understands what's going on.
 
