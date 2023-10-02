@@ -10,7 +10,7 @@ import random
 check50.internal.register.before_every(lambda : sys.path.append(os.getcwd()))
 check50.internal.register.after_every(lambda : sys.path.pop())
 
-error_text = "The queue.py program did not work correctly"
+error_text = "The my_queue.py program did not work correctly"
 help_text = "Sorry, no hints on this one! please test your class using the instructions in the assignment."
 
 

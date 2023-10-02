@@ -115,7 +115,7 @@ Note that such an error will **not** help the *user* of a program in which your 
 
 You can experiment by writing a couple of doctests for your class (we will not be checking these when you submit, though). But you can also keep adding test statements to the bottom of the file.
 
-When you submit, your class will be checked against the specification above. If there's anything not quite right with your implementation, the feedback won't provide you with any real hints this time. Instead, try adding some additional checks to queue.py yourself to see if everything works as expected. Especially make sure that `dequeue()` throws an `AssertionError` if the queue is empty.
+When you submit, your class will be checked against the specification above. If there's anything not quite right with your implementation, the feedback won't provide you with any real hints this time. Instead, try adding some additional checks to `my_queue.py` yourself to see if everything works as expected. Especially make sure that `dequeue()` throws an `AssertionError` if the queue is empty.
 
 Got stuck? Feel free to ask for help!
 
